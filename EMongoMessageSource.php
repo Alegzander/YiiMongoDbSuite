@@ -91,6 +91,7 @@ class EMongoMessageSource extends CMessageSource
         //Getting translations
         $translations = $i18n->getMessages($category, $language)->find();
 
+        //If we get null instead of object we might face problem trying to get messages
         if ($translations instanceof EMongoI18nModel)
             return $translations->messages;
 
