@@ -1,14 +1,22 @@
 <?php
 /**
  * Created by JetBrains PhpStorm.
- * User: alegz
- * Date: 12/1/12
- * Time: 9:45 PM
+ * User:    alegz
+ * E-mail:  alexander.aka.alegz@gmail.com
+ * Date:    12/1/12
+ * Time:    9:45 PM
  */
 
-class CMongoMessageSource extends CMessageSource
+/**
+ * EMongoMessageSource represents a message source that stores translate messages in mongo
+ *
+ * Databese should contain collection that will contain translations.
+ * Collection name should be the same as set in $this->translateMessageCollection it is equal
+ * to i18n by default.
+ */
+class EMongoMessageSource extends CMessageSource
 {
-    const CACHE_KEY_PREFIX = "application.component.";
+    const CACHE_KEY_PREFIX = "ext.YiiMongoDbSuite.EMongoMessageSource";
 
     /**
      * @var string
