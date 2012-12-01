@@ -8,6 +8,11 @@
  */
 
 /**
+ * Including required model class file
+ */
+require_once (__DIR__.DIRECTORY_SEPARATOR.'extra'.DIRECTORY_SEPARATOR.'EMongoI18nModel.php');
+
+/**
  * EMongoMessageSource represents a message source that stores translate messages in mongo
  *
  * Databese should contain collection that will contain translations.
@@ -86,8 +91,10 @@ class EMongoMessageSource extends CMessageSource
         //Getting translations
         $translations = $i18n->getMessages($category, $language)->find();
 
-        //Returning result
-        return $translations->messages;
+        if ($translations instanceof EMongoI18nModel)
+            return $translations->messages;
+
+        return null;
     }
 
     /**

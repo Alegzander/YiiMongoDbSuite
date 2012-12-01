@@ -28,6 +28,15 @@ class EMongoI18nModel extends EMongoDocument
     public $messages;
 
     /**
+     * @param string $className
+     * @return EMongoDocument
+     */
+    public static function model($className = __CLASS__)
+    {
+        return parent::model($className);
+    }
+
+    /**
      * @return string
      * @throws EMongoException
      */
